@@ -10,7 +10,7 @@ sap.ui.define([
             onInit: function () {
             },
             onOpenDialogHeader: function () {
-                this.getOwnerComponent().onOpenHelloDialog();
+                this.getOwnerComponent().openHelloDialog();
             }
         }
         );

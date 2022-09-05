@@ -10,13 +10,13 @@ sap.ui.define([
     function (ManagedObject, Fragment) {
         return ManagedObject.extend("dtt.sapui5.controller.HelloDialog", {
             constructor: function (oView) {
-                this.oView = oView;
+                this._oView = oView;
             },
             exit: function () {
                 delete this._oView;
             },
             open: function () {
-                const oView = this.oView;
+                const oView = this._oView;
                 if (!oView.byId("HelloDialog")) {
                     let oFragmentController = {
                         onCloseDialog: function () {
@@ -24,7 +24,7 @@ sap.ui.define([
                         }
                     };
                     Fragment.load({
-                        id: oView.getId(),
+                        id: oView.getId("HelloDialog"),
                         name: "dtt.sapui5.view.HelloDialog",
                         controller: oFragmentController
                     }).then(function (oDialog) {
@@ -32,7 +32,7 @@ sap.ui.define([
                         oDialog.open();
                     });
                 } else {
-                    oView.byId("HelloDialog");
+                    oView.byId("HelloDialog").open();
                 }
             }
         })
