@@ -3,6 +3,9 @@
     <App id="_IDGenApp1" >
     <pages>
         <Page id="_IDGenPage1" title="{i18n>appTitle}">
+            <headerContent>
+                <Button id="HelloDialogHeader" icon = "sap-icon://action" press=".onOpenDialogHeader" class="sapUiSmallMarginEnd" />
+            </headerContent>
             <content>
                 <mvc:XMLView id="_IDGenXMLView1" viewName="dtt.sapui5.view.HelloPanel">
                 </mvc:XMLView>

@@ -9,6 +9,9 @@ sap.ui.define([
         return Controller.extend("dtt.sapui5.controller.App", {
             onInit: function () {
             },
+            onOpenDialogHeader: function () {
+                this.getOwnerComponent().onOpenHelloDialog();
+            }
         }
         );
     }

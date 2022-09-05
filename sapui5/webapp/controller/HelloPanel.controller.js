@@ -1,7 +1,7 @@
 // @ts-nocheck
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
+    "sap/m/MessageToast"
 ],
     /**
      * @param{typeof sap.ui.core.mvc.Controller} Controller
@@ -17,7 +17,9 @@ sap.ui.define([
                 var sMSG = oBundle.getText("helloMsg", [sRecipient]);
                 MessageToast.show(sMSG);
             },
-        }
-        );
+            onOpenDialog: function () {
+                this.getOwnerComponent().openHelloDialog();
+            }
+        });
     }
 );
