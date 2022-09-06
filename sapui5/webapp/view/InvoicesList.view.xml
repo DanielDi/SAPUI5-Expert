@@ -1,0 +1,23 @@
+<mvc:View id="_IDGenView1" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" controllerName="dtt.sapui5.controller.InvoicesList">
+    <List id="_IDGenList1" headerText="{i18n>invoiceListTitle}" class="sapUiResposiveMargin" width="auto" items="{invoices>/Invoices}">
+        <headerToolbar>
+            <Toolbar id="_IDGenToolbar1">
+                <Title id="_IDGenTitle1" text="{i18n>invoiceListTitle}"/>
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                <SearchField id="_IDGenSearchField1" width="50%" search=".onFilterInvoices" />
+            </Toolbar>
+        </headerToolbar>
+        <items>
+            <ObjectListItem id="_IDGenObjectListItem1" title="{invoices>Quantity}x{invoices>ProductName}" 
+                            number="{parts:[{path:'invoices>ExtendedPrice'}, {path:'Currency>/usd'}], 
+                                    type:'sap.ui.model.type.Currency', formatOptions:{showMeasure:false}}"
+                            numberUnit="{Currency>/usd}" numberState="{= ${invoices>ExtendedPrice}>50 ? 'Success' : 'Error'}" >
+                <firstStatus>
+                    <ObjectStatus id="_IDGenObjectStatus1" text="{path:'invoices>Status', 
+                                  formatter:'.formatter.invoiceStatus'}">
+                    </ObjectStatus>
+                </firstStatus>
+            </ObjectListItem>
+        </items>
+    </List>
+</mvc:View>
